@@ -1,37 +1,10 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
 
-/*
-import React from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen'; 
-*/
-
-import React from 'react';
+/*import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import Login from './src/pages/Login/index';
 
+
+//Login está correto aqui <<<<=====
 export default function Projeto1(){
   return (
     <View style={estilos.conteiner}>
@@ -39,6 +12,7 @@ export default function Projeto1(){
     </View>
   );
 };
+
 
 //conteúdo de CSS
 const estilos = StyleSheet.create({
@@ -49,91 +23,133 @@ const estilos = StyleSheet.create({
  //   justifyContent: 'center', //justifica todos os textos ao centro da tela
   },
 });
+//Login está correto até aqui <<<<=====
+*/
 
 
 /*
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
+import React from 'react';
+import { View, Text} from 'react-native';
+import PaginaInicial from './src/pages/PaginaInicial';
+
+export default function Projeto1(){
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
+    <View>
+      <View>
+       <PaginaInicial/>
+      </View>
     </View>
   );
 };
+*/
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
+import * as React from 'react';
+import { Text, View, StyleSheet } from 'react-native';
+import { getFocusedRouteNameFromRoute, NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
 
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Projeto1 Ariana">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
+function PaginaInicialScreen() {
+	return (
+    <View style={styles.container}>
+			<Text>Pagina Inicial</Text>
+    </View>
+    );
+}
+
+function PesquisarScreen() {
+	return (
+		<View style={styles.container}>
+			<Text>Pesquisar</Text>
+		</View>
+	);
+}
+
+function AdicionarNovoProdutoScreen() {
+	return (
+		<View style={styles.container}>
+			<Text>AdicionarNovoProduto</Text>
+		</View>
+	);
+}
+
+function ChatScreen() {
+	return (
+		<View style={styles.container}>
+			<Text>Chat</Text>
+		</View>
+	);
+}
+
+function PerfilScreen() {
+	return (
+		<View style={styles.container}>
+    	<Text>Perfil</Text>
+		</View>
+	);
+}
+
+const Tab = createBottomTabNavigator(); //Cria a navegação da Tab
+
+export default function Projeto1() {
+	return (
+		<NavigationContainer>
+			<Tab.Navigator>
+				<Tab.Screen 
+          name="Pagina Inicial" 
+          component={PaginaInicialScreen} 
+          options={{
+            tabBarIcon: ({ color }) => (
+              <Icon name="home-outline" size={20} color="#000000" />
+            ),
+          }}
+        />
+				<Tab.Screen 
+          name="Pesquisar" 
+          component={PesquisarScreen} 
+          options={{
+            tabBarIcon: ({ color }) => (
+              <Icon name="search-outline" size={20} color="#000000" />
+            ),
+          }}
+        />
+				<Tab.Screen 
+          name="Adicionar Novo Produto" 
+          component={AdicionarNovoProdutoScreen} 
+          options={{
+            tabBarIcon: ({ color }) => (
+            <Icon name="add-outline" size={30} color="#000000" />
+            )
+          }}  
+        />
+				<Tab.Screen 
+          name="Chat" 
+          component={ChatScreen} 
+          options={{
+            tabBarIcon: ({ color }) => (
+            <Icon name="chatbubble-outline" size={20} color="#000000" />
+            )
+          }}
+        />
+				<Tab.Screen 
+          name="Perfil" 
+          component={PerfilScreen} 
+          options={{
+            tabBarIcon: ({ color }) => (
+            <Icon name="person-outline" size={20} color="#000000" />
+            )
+          }}
+        />
+			</Tab.Navigator>
+		</NavigationContainer>
+	);
+}
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
+	container: {
+		flex: 1,
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
 });
-
-export default App;
-*/
