@@ -43,17 +43,23 @@ export default function Projeto1(){
 };
 */
 
+//import 'react-native-gesture-handler'; // Torna as interações de toque e o rastreamento de gestos suaves...
 import * as React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { getFocusedRouteNameFromRoute, NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'; //navegação inferior da tab
+import { createStackNavigator } from 'react-navigation-stack'; //ir e voltar para outra página, na parte superior
+import { TouchableOpacity } from 'react-native-gesture-handler'; //utilizado para incluir o ícone como botão
 import Icon from 'react-native-vector-icons/Ionicons';
-
+import PaginaInicial from './src/pages/PaginaInicial';
+import Pesquisar from './src/pages/Pesquisar';
 
 function PaginaInicialScreen() {
 	return (
     <View style={styles.container}>
-			<Text>Pagina Inicial</Text>
+	    <View>
+          <PaginaInicial/>
+      </View>    
     </View>
     );
 }
@@ -62,10 +68,11 @@ function PesquisarScreen() {
 	return (
 		<View style={styles.container}>
 			<Text>Pesquisar</Text>
+      <Pesquisar/>
 		</View>
 	);
 }
-
+ 
 function AdicionarNovoProdutoScreen() {
 	return (
 		<View style={styles.container}>
@@ -95,11 +102,22 @@ const Tab = createBottomTabNavigator(); //Cria a navegação da Tab
 export default function Projeto1() {
 	return (
 		<NavigationContainer>
-			<Tab.Navigator>
+      <Tab.Navigator>
 				<Tab.Screen 
-          name="Pagina Inicial" 
+          name="Pagina Inicial, aqui vai filtrar por categoria" 
           component={PaginaInicialScreen} 
           options={{
+            title: 'Filtrar por categoria',
+            headerLeft: () => (
+              <TouchableOpacity style={{ marginLeft: 25 }}>
+                  <Icon 
+                    name="funnel-outline" 
+                    size={20} 
+                    color="#000000" 
+                  />
+              </TouchableOpacity>
+              
+            ),
             tabBarIcon: ({ color }) => (
               <Icon name="home-outline" size={20} color="#000000" />
             ),
@@ -137,7 +155,7 @@ export default function Projeto1() {
           component={PerfilScreen} 
           options={{
             tabBarIcon: ({ color }) => (
-            <Icon name="person-outline" size={20} color="#000000" />
+            <Icon name="person-outline" size={20} color="#000000" />            
             )
           }}
         />
@@ -146,10 +164,11 @@ export default function Projeto1() {
 	);
 }
 
+//estilo de todas as páginas (fora a Tab e TabScreen)
 const styles = StyleSheet.create({
 	container: {
-		flex: 1,
-		justifyContent: 'center',
-		alignItems: 'center',
+//		flex: 1,
+//		justifyContent: 'center',
+//		alignItems: 'center',
 	},
 });
