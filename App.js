@@ -58,7 +58,8 @@ function PaginaInicialScreen() {
 	return (
     <View style={styles.container}>
 	    <View>
-          <PaginaInicial/>
+        <Pesquisar/>
+        <PaginaInicial/>
       </View>    
     </View>
     );
