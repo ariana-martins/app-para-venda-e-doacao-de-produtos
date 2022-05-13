@@ -3,11 +3,13 @@ import { View, Text, StyleSheet, Image, SafeAreaView, ScrollView } from 'react-n
 import { Card, Title } from 'react-native-paper';
 
 export default function PaginaInicial(){
+  
     return(        
        <SafeAreaView style={{height: 615}}>
          <ScrollView> 
-            <Card style={{padding: 20}}>
-                <Card.Cover 
+         <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-around'}}>
+            <Card style={{padding: 20, backgroundColor: '#46C227'}}>
+                <Card.Cover
                 style={styles.imageTamanho}
                 source={require('../../../src/assets/img1.png')} />
                 <Title style={styles.title}>Sapatênis</Title>
@@ -53,9 +55,11 @@ export default function PaginaInicial(){
                 <Title style={styles.title}>Vestido roxo</Title>
                 <Text style={styles.title}>R$0,00</Text>
             </Card>
+            </View>
           </ScrollView>
         </SafeAreaView>
     );
+  
 }
 
 const styles = StyleSheet.create({

@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 export default function Pesquisar(){
     return(
        
-       <View style={{backgroundColor: '#46C227'}}>
+       <View style={{backgroundColor: '#FFFFFF'}}>
            <View style={styles.botaoPesquisar}> 
                 <View style={styles.inputArea}>
                     <Icon name="search" size={20} color="#000000" />
