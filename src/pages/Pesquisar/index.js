@@ -16,7 +16,6 @@ export default function Pesquisar(){
                     />
                 </View>
             </View>            
-            <Text>Aqui vai a pagina de filtrar e pesquisar</Text>
        </View>         
     );
 }

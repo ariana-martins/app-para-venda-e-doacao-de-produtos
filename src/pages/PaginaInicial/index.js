@@ -1,49 +1,74 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, ScrollView, TextInput } from 'react-native';
+import { View, Text, StyleSheet, Image, SafeAreaView, ScrollView } from 'react-native';
 import { Card, Title } from 'react-native-paper';
 
 export default function PaginaInicial(){
-    return(
-        
-        //cor na parte interna da página inicial
-        <ScrollView > 
-          <View>
-            <Card style={{padding:20, margin:10, backgroundColor: "#eddfdf"}}>
-                <Card.Cover source={require('../../../src/assets/img1.png')} />
-                <Title>Sapato novo</Title>
-                <Text>R$120,00</Text>
-                <Card.Cover source={require('../../../src/assets/img2.png')} />
-                <Title>Título produto aqui</Title>
-                <Text>R$0,00</Text>
-                <Card.Cover source={require('../../../src/assets/img3.png')} />
-                <Title>Título produto aqui</Title>
-                <Text>R$0,00</Text>
-                <Card.Cover source={require('../../../src/assets/img4.png')} />
-                <Title>Título produto aqui</Title>
-                <Text>R$0,00</Text>
-                <Card.Cover source={require('../../../src/assets/img5.png')} />
-                <Title>Título produto aqui</Title>
-                <Text>R$0,00</Text>
-                <Card.Cover source={require('../../../src/assets/img6.png')} />
-                <Title>Título produto aqui</Title>
-                <Text>R$0,00</Text>
-                <Card.Cover source={require('../../../src/assets/img7.png')} />
-                <Title>Título produto aqui</Title>
-                <Text>R$0,00</Text>
-                <Card.Cover source={require('../../../src/assets/img8.png')} />
-                <Title>Título produto aqui</Title>
-                <Text>R$0,00</Text>
-                <Card.Cover source={require('../../../src/assets/img9.png')} />
-                <Title>Título produto aqui</Title>
-                <Text>R$0,00</Text>
+    return(        
+       <SafeAreaView style={{height: 615}}>
+         <ScrollView> 
+            <Card style={{padding: 20}}>
+                <Card.Cover 
+                style={styles.imageTamanho}
+                source={require('../../../src/assets/img1.png')} />
+                <Title style={styles.title}>Sapatênis</Title>
+                <Text style={styles.title}>R$200,00</Text>
+                <Card.Cover 
+                style={styles.imageTamanho}
+                source={require('../../../src/assets/img2.png')} />
+                <Title style={styles.title}>Blusa branca</Title>
+                <Text style={styles.title}>R$0,00</Text>
+                <Card.Cover 
+                style={styles.imageTamanho}
+                source={require('../../../src/assets/img3.png')} />
+                <Title style={styles.title}>Tênis branco</Title>
+                <Text style={styles.title}>R$0,00</Text>
+                <Card.Cover 
+                style={styles.imageTamanho}
+                source={require('../../../src/assets/img4.png')} />
+                <Title style={styles.title}>Bermuda</Title>
+                <Text style={styles.title}>R$0,00</Text>
+                <Card.Cover 
+                style={styles.imageTamanho}
+                source={require('../../../src/assets/img5.png')} />
+                <Title style={styles.title}>Chinelo adulto</Title>
+                <Text style={styles.title}>R$35,00</Text>
+                <Card.Cover 
+                style={styles.imageTamanho}
+                source={require('../../../src/assets/img6.png')} />
+                <Title style={styles.title}>Casaco infantil</Title>
+                <Text style={styles.title}>R$100,00</Text>
+                <Card.Cover 
+                style={styles.imageTamanho}
+                source={require('../../../src/assets/img7.png')} />
+                <Title style={styles.title}>Sapato</Title>
+                <Text style={styles.title}>R$0,00</Text>
+                <Card.Cover 
+                style={styles.imageTamanho}
+                source={require('../../../src/assets/img8.png')} />
+                <Title style={styles.title}>Casaco preto</Title>
+                <Text style={styles.title}>R$214,00</Text>
+                <Card.Cover 
+                style={styles.imageTamanho}
+                source={require('../../../src/assets/img9.png')} />
+                <Title style={styles.title}>Vestido roxo</Title>
+                <Text style={styles.title}>R$0,00</Text>
             </Card>
-          </View>
-        </ScrollView>
+          </ScrollView>
+        </SafeAreaView>
     );
 }
 
-
-const styles = StyleSheet.create({   
-    
+const styles = StyleSheet.create({
+  imageTamanho:{
+    width: 96,
+    height: 118,
+  },
+  title:{
+    width: 94,
+    fontFamily: "Inter", 
+    fontStyle: "normal",
+    fontSize: 15,
+    lineHeight: 20,
+    color: "#000000",
+  },   
 });
-
