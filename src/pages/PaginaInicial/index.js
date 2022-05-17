@@ -1,78 +1,152 @@
-import React from 'react';
-import { View, Text, StyleSheet, Image, SafeAreaView, ScrollView } from 'react-native';
-import { Card, Title } from 'react-native-paper';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, Image, SafeAreaView, FlatList} from 'react-native';
+import { Card } from 'react-native-paper';
 
-export default function PaginaInicial(){
-  
-    return(        
-       <SafeAreaView style={{height: 615}}>
-         <ScrollView> 
-         <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-around'}}>
-            <Card style={{padding: 20, backgroundColor: '#46C227'}}>
-                <Card.Cover
-                style={styles.imageTamanho}
-                source={require('../../../src/assets/img1.png')} />
-                <Title style={styles.title}>Sapatênis</Title>
-                <Text style={styles.title}>R$200,00</Text>
-                <Card.Cover 
-                style={styles.imageTamanho}
-                source={require('../../../src/assets/img2.png')} />
-                <Title style={styles.title}>Blusa branca</Title>
-                <Text style={styles.title}>R$0,00</Text>
-                <Card.Cover 
-                style={styles.imageTamanho}
-                source={require('../../../src/assets/img3.png')} />
-                <Title style={styles.title}>Tênis branco</Title>
-                <Text style={styles.title}>R$0,00</Text>
-                <Card.Cover 
-                style={styles.imageTamanho}
-                source={require('../../../src/assets/img4.png')} />
-                <Title style={styles.title}>Bermuda</Title>
-                <Text style={styles.title}>R$0,00</Text>
-                <Card.Cover 
-                style={styles.imageTamanho}
-                source={require('../../../src/assets/img5.png')} />
-                <Title style={styles.title}>Chinelo adulto</Title>
-                <Text style={styles.title}>R$35,00</Text>
-                <Card.Cover 
-                style={styles.imageTamanho}
-                source={require('../../../src/assets/img6.png')} />
-                <Title style={styles.title}>Casaco infantil</Title>
-                <Text style={styles.title}>R$100,00</Text>
-                <Card.Cover 
-                style={styles.imageTamanho}
-                source={require('../../../src/assets/img7.png')} />
-                <Title style={styles.title}>Sapato</Title>
-                <Text style={styles.title}>R$0,00</Text>
-                <Card.Cover 
-                style={styles.imageTamanho}
-                source={require('../../../src/assets/img8.png')} />
-                <Title style={styles.title}>Casaco preto</Title>
-                <Text style={styles.title}>R$214,00</Text>
-                <Card.Cover 
-                style={styles.imageTamanho}
-                source={require('../../../src/assets/img9.png')} />
-                <Title style={styles.title}>Vestido roxo</Title>
-                <Text style={styles.title}>R$0,00</Text>
-            </Card>
-            </View>
-          </ScrollView>
-        </SafeAreaView>
-    );
-  
-}
-
-const styles = StyleSheet.create({
-  imageTamanho:{
-    width: 96,
-    height: 118,
+const card = [
+  {
+  image: require('../../../src/assets/img1.png'),
+  title: 'Sapatênis',
+  valor: 'R$200,00',
   },
-  title:{
-    width: 94,
-    fontFamily: "Inter", 
-    fontStyle: "normal",
-    fontSize: 15,
-    lineHeight: 20,
-    color: "#000000",
-  },   
-});
+  {
+  image: require('../../../src/assets/img2.png'),
+  title: 'Blusa branca',
+  valor: 'R$0,00',
+  },
+  {
+  image: require('../../../src/assets/img3.png'),
+  title: 'Tênis branco',
+  valor: 'R$0,00',
+  },
+  {
+  image: require('../../../src/assets/img4.png'),
+  title: 'Bermuda',
+  valor: 'R$0,00',
+  },
+  {
+  image: require('../../../src/assets/img5.png'),
+  title: 'Chinelo adulto',
+  valor: 'R$35,00',
+  },
+  {
+  image: require('../../../src/assets/img6.png'),
+  title: 'Casaco infantil',
+  valor: 'R$100,00',
+  },
+  {
+  image: require('../../../src/assets/img7.png'),
+  title: 'Sapato',
+  valor: 'R$0,00',
+  },
+  {
+  image: require('../../../src/assets/img8.png'),
+  title: 'Casaco preto',
+  valor: 'R$214,00',
+  },
+  {
+  image: require('../../../src/assets/img9.png'),
+  title: 'Vestido roxo',
+  valor: 'R$0,00',
+  },
+  {
+    image: require('../../../src/assets/img1.png'),
+    title: 'teste1',
+    valor: 'R$0,00',
+    },
+    {
+    image: require('../../../src/assets/img2.png'),
+    title: 'teste2',
+    valor: 'R$0,00',
+    },
+    {
+    image: require('../../../src/assets/img3.png'),
+    title: 'testeeeeeeee',
+    valor: 'R$0,0000000000',
+    },
+    {
+    image: require('../../../src/assets/img4.png'),
+    title: 'teste1',
+    valor: 'R$0,00',
+    },
+    {
+    image: require('../../../src/assets/img5.png'),
+    title: 'teste1',
+    valor: 'R$0,00',
+    },
+    {
+    image: require('../../../src/assets/img6.png'),
+    title: 'teste1',
+    valor: 'R$0,00',
+    },
+    {
+    image: require('../../../src/assets/img7.png'),
+    title: 'teste1',
+    valor: 'R$0,00',
+    },
+    {
+    image: require('../../../src/assets/img8.png'),
+    title: 'teste1',
+    valor: 'R$0,00',
+    },
+    {
+    image: require('../../../src/assets/img9.png'),
+    title: 'teste1',
+    valor: 'R$0,00',
+    },
+
+];
+  
+
+
+const PaginaInicial = () => {
+  const _renderItem = ({ item }) => (    
+    <View>
+    <Image 
+      source={item.image}
+      style={{ width: 96, height: 118 }}
+      resizeMode="cover"
+    />
+    <Text 
+      style={{
+        width: 96,
+        fontFamily: "Inter", 
+        fontStyle: "normal",
+        fontSize: 15,
+        lineHeight: 20,
+        color: "#000000",
+      }}
+    >
+    {item.title}
+    </Text>
+    <Text
+    style={{
+      width: 96,
+      fontFamily: "Inter", 
+      fontStyle: "normal",
+      fontSize: 15,
+      lineHeight: 20,
+      color: "#000000",
+    }}
+    >
+    {item.valor}</Text>
+  </View>
+  );
+ 
+  
+  return (   
+    <SafeAreaView style={{height: 615}}>
+      <View style={{flex: 1, flexDirection: 'row'}}>
+        <FlatList 
+        columnWrapperStyle={{ justifyContent: 'space-around', padding: 10 }}
+        data={card}
+        numColumns={3}
+        renderItem={_renderItem}
+        />
+        
+      </View>
+    </SafeAreaView>
+      );
+    };
+
+
+export default PaginaInicial;

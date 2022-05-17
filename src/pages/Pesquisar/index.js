@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, TextInput } from 'react-native';
+
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
@@ -11,8 +12,8 @@ export default function Pesquisar(){
                 <View style={styles.inputArea}>
                     <Icon name="search" size={20} color="#000000" />
                     <TextInput
-                        placeholder="Pesquisar / Pesquise aqui..."
                         style={styles.input}
+                        placeholder="Pesquisar / Pesquise aqui..."
                     />
                 </View>
             </View>            

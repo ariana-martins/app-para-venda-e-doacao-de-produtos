@@ -54,6 +54,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import PaginaInicial from './src/pages/PaginaInicial';
 import Pesquisar from './src/pages/Pesquisar';
 
+
 function PaginaInicialScreen() {
 	return (
     <View style={styles.container}>
