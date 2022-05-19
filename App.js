@@ -54,6 +54,9 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import PaginaInicial from './src/pages/PaginaInicial';
 import Pesquisar from './src/pages/Pesquisar';
 
+//import { initializeApp } from firebase/app;
+//import { getFirestore } from firebase/firestore;
+
 
 function PaginaInicialScreen() {
 	return (
@@ -109,7 +112,7 @@ export default function Projeto1() {
           name="Pagina Inicial, aqui vai filtrar por categoria" 
           component={PaginaInicialScreen} 
           options={{
-            title: 'Filtrar por categoria',
+            title: 'Filtrar por categoria', 
             headerLeft: () => (
               <TouchableOpacity style={{ marginLeft: 25 }}>
                   <Icon 
@@ -121,44 +124,49 @@ export default function Projeto1() {
               
             ),
             tabBarIcon: ({ color }) => (
-              <Icon name="home-outline" size={20} color="#000000" />
+            <Icon name="home-outline" size={20} color="#000000" />
             ),
+            tabBarLabel: "Pagina Inicial",
           }}
         />
 				<Tab.Screen 
-          name="Pesquisar" 
+          name="Pesquisar!" 
           component={PesquisarScreen} 
           options={{
             tabBarIcon: ({ color }) => (
               <Icon name="search-outline" size={20} color="#000000" />
             ),
+            tabBarLabel: "Pesquisar",
           }}
         />
 				<Tab.Screen 
-          name="Adicionar Novo Produto" 
+          name="Adicionar Novo Produto!" 
           component={AdicionarNovoProdutoScreen} 
           options={{
             tabBarIcon: ({ color }) => (
             <Icon name="add-outline" size={30} color="#000000" />
-            )
-          }}  
+            ),
+            tabBarLabel: "Adicionar novo produto",
+          }}
         />
 				<Tab.Screen 
-          name="Chat" 
+          name="Chat!" 
           component={ChatScreen} 
           options={{
             tabBarIcon: ({ color }) => (
             <Icon name="chatbubble-outline" size={20} color="#000000" />
-            )
+            ),
+            tabBarLabel: "Chat",
           }}
         />
 				<Tab.Screen 
-          name="Perfil" 
+          name="Perfil!" 
           component={PerfilScreen} 
           options={{
             tabBarIcon: ({ color }) => (
             <Icon name="person-outline" size={20} color="#000000" />            
-            )
+            ),
+            tabBarLabel: "Perfil",
           }}
         />
 			</Tab.Navigator>

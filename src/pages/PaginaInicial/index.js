@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image, SafeAreaView, FlatList} from 'react-native';
+import { View, Text, StyleSheet, Image, SafeAreaView, FlatList, Pressable, Alert} from 'react-native';
 import { Card } from 'react-native-paper';
+import Detalhes from '../../../src/pages/Detalhes';
+
+//import { initializeApp } from firebase/app;
+//import { getFirestore } from firebase/firestore;
 
 const card = [
   {
@@ -98,14 +102,18 @@ const card = [
   
 
 
+
 const PaginaInicial = () => {
   const _renderItem = ({ item }) => (    
+    
     <View>
+      <Pressable onPress={() => Alert.alert('Você clicou na imagem')}>
     <Image 
       source={item.image}
       style={{ width: 96, height: 118 }}
       resizeMode="cover"
     />
+    </Pressable>
     <Text 
       style={{
         width: 96,
@@ -118,6 +126,8 @@ const PaginaInicial = () => {
     >
     {item.title}
     </Text>
+
+    <Pressable onPress={() => Alert.alert('Você clicou no valor')}>
     <Text
     style={{
       width: 96,
@@ -129,20 +139,21 @@ const PaginaInicial = () => {
     }}
     >
     {item.valor}</Text>
+    </Pressable>
   </View>
   );
  
-  
+
   return (   
+    
     <SafeAreaView style={{height: 615}}>
-      <View style={{flex: 1, flexDirection: 'row'}}>
+      <View style={{flex: 1, flexDirection: 'row', backgroundColor: "#FFFFFF"}}>
         <FlatList 
         columnWrapperStyle={{ justifyContent: 'space-around', padding: 10 }}
         data={card}
         numColumns={3}
-        renderItem={_renderItem}
+        renderItem={_renderItem} 
         />
-        
       </View>
     </SafeAreaView>
       );
