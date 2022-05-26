@@ -53,9 +53,8 @@ import { TouchableOpacity } from 'react-native-gesture-handler'; //utilizado par
 import Icon from 'react-native-vector-icons/Ionicons';
 import PaginaInicial from './src/pages/PaginaInicial';
 import Pesquisar from './src/pages/Pesquisar';
+import AdicionarNovoProduto from './src/pages/AdicionarNovoProduto';
 
-//import { initializeApp } from firebase/app;
-//import { getFirestore } from firebase/firestore;
 
 
 function PaginaInicialScreen() {
@@ -81,14 +80,14 @@ function PesquisarScreen() {
 function AdicionarNovoProdutoScreen() {
 	return (
 		<View style={styles.container}>
-			<Text>AdicionarNovoProduto</Text>
+      <AdicionarNovoProduto/>
 		</View>
 	);
 }
 
 function ChatScreen() {
 	return (
-		<View style={styles.container}>
+		<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
 			<Text>Chat</Text>
 		</View>
 	);
@@ -121,9 +120,8 @@ export default function Projeto1() {
                     color="#000000" 
                   />
               </TouchableOpacity>
-              
             ),
-            tabBarIcon: ({ color }) => (
+            tabBarIcon: ({ color, size }) => (
             <Icon name="home-outline" size={20} color="#000000" />
             ),
             tabBarLabel: "Pagina Inicial",
@@ -132,7 +130,7 @@ export default function Projeto1() {
 				<Tab.Screen 
           name="Pesquisar!" 
           component={PesquisarScreen} 
-          options={{
+          options={{            
             tabBarIcon: ({ color }) => (
               <Icon name="search-outline" size={20} color="#000000" />
             ),
@@ -140,7 +138,8 @@ export default function Projeto1() {
           }}
         />
 				<Tab.Screen 
-          name="Adicionar Novo Produto!" 
+          name=" " 
+
           component={AdicionarNovoProdutoScreen} 
           options={{
             tabBarIcon: ({ color }) => (

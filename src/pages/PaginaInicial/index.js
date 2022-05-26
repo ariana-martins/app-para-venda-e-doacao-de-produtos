@@ -3,8 +3,7 @@ import { View, Text, StyleSheet, Image, SafeAreaView, FlatList, Pressable, Alert
 import { Card } from 'react-native-paper';
 import Detalhes from '../../../src/pages/Detalhes';
 
-//import { initializeApp } from firebase/app;
-//import { getFirestore } from firebase/firestore;
+
 
 const card = [
   {
@@ -101,13 +100,11 @@ const card = [
 ];
   
 
-
-
-const PaginaInicial = () => {
+const PaginaInicial = ( ) => {
   const _renderItem = ({ item }) => (    
     
     <View>
-      <Pressable onPress={() => Alert.alert('Você clicou na imagem')}>
+      <Pressable onPress={() => Alert.alert('Detalhes')}>
     <Image 
       source={item.image}
       style={{ width: 96, height: 118 }}

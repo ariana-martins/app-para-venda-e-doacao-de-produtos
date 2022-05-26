@@ -3,9 +3,6 @@ import { View, Text, StyleSheet, TextInput } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
-//import { initializeApp } from firebase/app;
-//import { getFirestore } from firebase/firestore;
-
 
 export default function Pesquisar(){
     return(
