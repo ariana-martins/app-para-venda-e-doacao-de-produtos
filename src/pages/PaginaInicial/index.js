@@ -1,10 +1,61 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, SafeAreaView, FlatList, Pressable, Alert} from 'react-native';
-import { Card } from 'react-native-paper';
-import Detalhes from '../../../src/pages/Detalhes';
+import Pesquisar from '../Pesquisar';
+import Detalhes from '../Detalhes';
+
+import ProdutosList from '../../components/ProdutosList';
 
 
 
+export default function PaginaInicial(){
+  const [produtos, setProdutos] = useState([
+    { key: 1, produtos: 'roupa 1'},
+    { key: 2, produtos: 'roupa 2'},
+    { key: 3, produtos: 'roupa 3'},
+    { key: 4, produtos: 'roupa 4'},
+    { key: 5, produtos: 'roupa 5'},
+    { key: 6, produtos: 'roupa 6'},
+    { key: 7, produtos: 'roupa 7'},
+    { key: 8, produtos: 'roupa 8'},
+    { key: 9, produtos: 'roupa 9'},
+    { key: 10, produtos: 'roupa 10'},
+    { key: 11, produtos: 'roupa 11'},
+    { key: 12, produtos: 'roupa 12'},
+    { key: 13, produtos: 'roupa 13'},
+    { key: 14, produtos: 'roupa 14'},
+    { key: 15, produtos: 'roupa 15'},
+    { key: 16, produtos: 'roupa 16'},
+    { key: 17, produtos: 'roupa 17'},
+    { key: 18, produtos: 'roupa 18'},
+  ])
+
+
+  return(
+    <SafeAreaView style={styles.container}>
+      <Pesquisar/>
+      
+       {/*Aqui vai a lista de produtos*/}
+       <FlatList 
+        showsHorizontalScrollIndicator={false}
+        columnWrapperStyle={{ justifyContent: 'space-around', padding: 10 }}
+        data={produtos}
+        keyExtractor={ (item) => String(item.key) }
+        renderItem={ ({item}) => <ProdutosList data={item} /> } 
+        numColumns={3}
+        />
+        
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container:{
+    flex:1,
+    backgroundColor:'#FFFFFF',
+  }
+})
+
+/*
 const card = [
   {
   image: require('../../../src/assets/img1.png'),
@@ -100,6 +151,8 @@ const card = [
 ];
   
 
+
+
 const PaginaInicial = ( ) => {
   const _renderItem = ({ item }) => (    
     
@@ -143,7 +196,8 @@ const PaginaInicial = ( ) => {
 
   return (   
     
-    <SafeAreaView style={{height: 615}}>
+    <SafeAreaView style={{flex: 1}}>
+      <Pesquisar/>
       <View style={{flex: 1, flexDirection: 'row', backgroundColor: "#FFFFFF"}}>
         <FlatList 
         columnWrapperStyle={{ justifyContent: 'space-around', padding: 10 }}
@@ -158,3 +212,4 @@ const PaginaInicial = ( ) => {
 
 
 export default PaginaInicial;
+*/

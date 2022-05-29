@@ -43,7 +43,11 @@ export default function Projeto1(){
 };
 */
 
+//===================================================================
+//TAB SCREEN FUNCIONANDO NESSA PARTE DEBAIXO
+
 //import 'react-native-gesture-handler'; // Torna as interações de toque e o rastreamento de gestos suaves...
+/*
 import * as React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { getFocusedRouteNameFromRoute, NavigationContainer } from '@react-navigation/native';
@@ -111,6 +115,13 @@ export default function Projeto1() {
           name="Pagina Inicial, aqui vai filtrar por categoria" 
           component={PaginaInicialScreen} 
           options={{
+            headerStyle:{
+              backgroundColor: '#009387'
+            },
+            headerTintColor: '#00000',
+            headerTitleStyle: {
+              fontWeight: 'normal'
+            },
             title: 'Filtrar por categoria', 
             headerLeft: () => (
               <TouchableOpacity style={{ marginLeft: 25 }}>
@@ -138,8 +149,7 @@ export default function Projeto1() {
           }}
         />
 				<Tab.Screen 
-          name=" " 
-
+          name="Adicionar Novo Produto!" 
           component={AdicionarNovoProdutoScreen} 
           options={{
             tabBarIcon: ({ color }) => (
@@ -158,7 +168,7 @@ export default function Projeto1() {
             tabBarLabel: "Chat",
           }}
         />
-				<Tab.Screen 
+				<Tab.Screen
           name="Perfil!" 
           component={PerfilScreen} 
           options={{
@@ -181,3 +191,101 @@ const styles = StyleSheet.create({
 //		alignItems: 'center',
 	},
 });
+*/
+
+//=================================================
+// AQUI PARA BAIXO, É A PARTE NOVA DO CÓDIGO
+//===================================================
+
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+import Icon from 'react-native-vector-icons/Ionicons';
+
+import PaginaInicial from './src/pages/PaginaInicial';
+import Pesquisar from './src/pages/Pesquisar';
+import AdicionarNovoProduto from './src/pages/AdicionarNovoProduto';
+import Chat from './src/pages/Chat';
+import Perfil from './src/pages/Perfil';
+
+import Detalhes from './src/pages/Detalhes';
+
+
+const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
+
+
+function Tabs() {
+  return (
+    <Tab.Navigator screenOptions={{ headerShown: false}}>
+      <Tab.Screen 
+      name='Página Inicial' 
+      component={PaginaInicial} 
+      options={{
+        tabBarIcon: ({ color }) => (
+          <Icon name="home-outline" size={20} color="#000000" />
+          ),
+          tabBarLabel: "Pagina Inicial",
+      }}
+      />
+      <Tab.Screen 
+      name='Pesquisar - Tab' 
+      component={Pesquisar} 
+      options={{            
+        tabBarIcon: ({ color }) => (
+          <Icon name="search-outline" size={20} color="#000000" />
+        ),
+        tabBarLabel: "Pesquisar",
+      }}
+      />
+      <Tab.Screen 
+      name='Adicionar Novo Produto - Tab' 
+      component={AdicionarNovoProduto} 
+      options={{
+        tabBarIcon: ({ color }) => (
+        <Icon name="add-outline" size={30} color="#000000" />
+        ),
+        tabBarLabel: "Adicionar novo produto",
+      }}
+      />
+      <Tab.Screen 
+      name='Chat - Tab' 
+      component={Chat} 
+      options={{
+        tabBarIcon: ({ color }) => (
+        <Icon name="chatbubble-outline" size={20} color="#000000" />
+        ),
+        tabBarLabel: "Chat",
+      }}
+      />
+      <Tab.Screen 
+      name='Perfil - Tab' 
+      component={Perfil} 
+      options={{
+        tabBarIcon: ({ color }) => (
+        <Icon name="person-outline" size={20} color="#000000" />            
+        ),
+        tabBarLabel: "Perfil",
+      }}
+      />
+
+    </Tab.Navigator>
+  );
+}
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator >
+        <Stack.Screen name="Inicio!" component={Tabs} options={{headerShown: false}} />
+        <Stack.Screen name="Detalhes!" component={Detalhes} options={{headerShown: false}} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+
+
+

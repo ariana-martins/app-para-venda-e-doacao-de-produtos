@@ -19,9 +19,11 @@ export default function AdicionarNovoProduto(){
             </View> 
             <Text style={styles.texto}>Descrição do produto:</Text>
            <View style={styles.botaoAdicionarMargem}> 
-                <View style={styles.inputArea}>
+                <View style={styles.inputAreaDetalhes}>
                     <TextInput
-                        style={styles.input}
+                        multiline={true}
+                        autoCorrect={false}
+                        style={styles.inputDetalhes}
                         placeholder="Escreva aqui os detalhes do produto..."
                     />
                 </View>
@@ -80,12 +82,36 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderColor: '#000000',
     }, 
+    inputAreaDetalhes:{
+        paddingHorizontal: 15,
+        flexDirection: 'row',
+        alignItems: 'flex-start',
+        width: '98%',
+        backgroundColor: '#ffffff',
+        elevation: 2,
+        paddingHorizontal: 10,
+        height: 80,
+        borderRadius: 10,
+        borderWidth: 2,
+        borderColor: '#000000',
+    }, 
    input:{
        fontFamily: 'Roboto',
         paddingHorizontal: 10,
         fontSize: 15,
         width: '98%'
     },
+    inputDetalhes:{
+         fontFamily: 'Roboto',
+         fontSize: 15,
+         marginLeft: 1,
+         marginRight: 1,
+         marginTop: 1,
+         backgroundColor: '#FFFFFF',
+         padding: 10,
+         textAlignVertical: 'top',
+         color: '#000000',
+     },
     textoBotao:{
         color: '#FFFFFF', //cor do texto
         fontWeight: 'bold', //texto em negrito

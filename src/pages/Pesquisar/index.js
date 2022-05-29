@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TextInput } from 'react-native';
+import { View, Text, StyleSheet, TextInput, SafeAreaView } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -7,21 +7,44 @@ import Icon from 'react-native-vector-icons/Ionicons';
 export default function Pesquisar(){
     return(
        
-       <View style={{backgroundColor: '#FFFFFF'}}>
+       <SafeAreaView style={{backgroundColor: '#FFFFFF'}}>
+           <View style={styles.botaoFiltrar}>
+               <View style={styles.filtrarArea}>
+                   <Icon name="funnel-outline" size={20} color="#000000" />
+                   <Text style={styles.txtFiltrar}>Filtrar por categoria</Text>
+                </View>
+            </View>
            <View style={styles.botaoPesquisar}> 
                 <View style={styles.inputArea}>
-                    <Icon name="search" size={20} color="#000000" />
+                    <Icon name="search" size={20} color="#000000"/>
                     <TextInput
                         style={styles.input}
                         placeholder="Pesquisar / Pesquise aqui..."
                     />
                 </View>
             </View>            
-       </View>         
+       </SafeAreaView>         
     );
 }
 
 const styles = StyleSheet.create({
+    botaoFiltrar:{
+        paddingHorizontal: 10,
+        flexDirection: 'row',
+        alignItems: 'center',
+        width: '100%',
+        marginVertical: 5,
+    },
+    filtrarArea:{
+        paddingHorizontal: 15,
+        flexDirection: 'row',
+        alignItems: 'center', 
+    },
+    txtFiltrar:{
+        fontFamily: 'Roboto',
+         paddingHorizontal: 10,
+         fontSize: 20,
+     },
     botaoPesquisar:{
         paddingHorizontal: 15, 
         flexDirection: 'row',
