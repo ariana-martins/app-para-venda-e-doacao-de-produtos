@@ -42,8 +42,8 @@ const styles = StyleSheet.create({
     },
     txtFiltrar:{
         fontFamily: 'Roboto',
-         paddingHorizontal: 10,
-         fontSize: 20,
+        paddingHorizontal: 10,
+        fontSize: 20,
      },
     botaoPesquisar:{
         paddingHorizontal: 15, 

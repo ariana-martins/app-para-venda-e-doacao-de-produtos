@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet} from 'react-native';
 
-
+/*
 export default function ProdutosList({ data }){
     return(
         <View>
@@ -18,7 +18,8 @@ export default function ProdutosList({ data }){
 const styles = StyleSheet.create({
     image:{ 
         width: 96, 
-        height: 118, 
+        height: 118,
+         
     },
     title:{
         width: 96,
@@ -35,3 +36,4 @@ const styles = StyleSheet.create({
 
     
 });
+*/
