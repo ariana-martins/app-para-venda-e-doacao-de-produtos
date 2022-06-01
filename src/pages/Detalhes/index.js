@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import SwiperNumberComponent from '../../components/SwiperNumber';
 import Icon from 'react-native-vector-icons/Ionicons';
 
+import Chat from '../Chat';
 
 
 export default function Detalhes() {

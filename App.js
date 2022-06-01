@@ -201,6 +201,10 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+
+import TopBarNavigator from './src/navigations/TopBarNavigator';
+
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import PaginaInicial from './src/pages/PaginaInicial';
@@ -261,7 +265,7 @@ function Tabs() {
       />
       <Tab.Screen 
       name='Perfil - Tab' 
-      component={Perfil} 
+      component={TopBarNavigator} 
       options={{
         tabBarIcon: ({ color }) => (
         <Icon name="person-outline" size={20} color="#000000" />            
@@ -280,6 +284,8 @@ export default function App() {
       <Stack.Navigator >
         <Stack.Screen name="Inicio!" component={Tabs} options={{headerShown: false}} />
         
+
+
         <Stack.Screen 
         name="Detalhes" 
         component={Detalhes} 
