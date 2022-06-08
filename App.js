@@ -284,8 +284,6 @@ export default function App() {
       <Stack.Navigator >
         <Stack.Screen name="Inicio!" component={Tabs} options={{headerShown: false}} />
         
-
-
         <Stack.Screen 
         name="Detalhes" 
         component={Detalhes} 

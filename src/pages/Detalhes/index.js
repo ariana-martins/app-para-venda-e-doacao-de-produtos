@@ -1,16 +1,15 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, Pressable, StyleSheet } from 'react-native';
+
 import { ScrollView } from 'react-native-gesture-handler';
-import { useNavigation } from '@react-navigation/native';
+
 
 import SwiperNumberComponent from '../../components/SwiperNumber';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import Chat from '../Chat';
 
 
 export default function Detalhes() {
-    const navigation = useNavigation();
 
     return (
         <View style={styles.container}>
@@ -34,16 +33,17 @@ export default function Detalhes() {
             </Text>
             
             <View style={styles.botaoAdicionarMargem}> 
-                <TouchableOpacity style={styles.btn} onPress={()=>Interesses()}>
+                <TouchableOpacity style={styles.btn} >
                     <Text style={styles.textoBotao}>Registrar Interesse</Text>  
                 </TouchableOpacity>
             </View>
             
             <View style={styles.botaoAdicionarMargem}> 
-                <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('Chat')}>
+                <TouchableOpacity style={styles.btn}>
                     <Text style={styles.textoBotao}>Chat</Text>  
                 </TouchableOpacity>
             </View>
+            
             
         </View>
     

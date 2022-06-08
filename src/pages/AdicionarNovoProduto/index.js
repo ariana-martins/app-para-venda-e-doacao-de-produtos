@@ -1,13 +1,27 @@
 import React from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import { Button, Checkbox } from 'react-native-paper';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
 export default function AdicionarNovoProduto(){
+
+    const [isSelected, setSelection] = React.useState(false);
+
     return(
        
-       <View style={{backgroundColor: '#FFFFFF'}}>
+       <View style={{flex: 1, backgroundColor: '#FFFFFF'}}>
+           <View>
+               <Button style={styles.addFotos}
+               icon="camera" 
+               mode="contained" 
+               color="#FFFFFF" 
+               onPress={()=> {}}>
+                   Adicionar fotos   
+               </Button>
+           </View>
+
            <Text style={styles.texto}>Título do produto:</Text>
            <View style={styles.botaoAdicionarMargem}> 
                 <View style={styles.inputArea}>
@@ -28,7 +42,31 @@ export default function AdicionarNovoProduto(){
                     />
                 </View>
             </View> 
+            
             <Text style={styles.texto}>Selecione uma opção:</Text>
+            <View>
+                <View style={styles.checkboxOpcoes}>
+                    <Checkbox
+                        status={isSelected ? 'unchecked' : 'checked'} 
+                        onPress={() => {
+                            setSelection(!isSelected);
+                        }}
+                        color="#000000"
+                    />
+                    <Text style={styles.label}>PARA DOAR</Text> 
+                    
+                    <Checkbox
+                        status={isSelected ? 'checked' : 'unchecked'}
+                        onPress={() => {
+                            setSelection(!isSelected);
+                        }}
+                        color="#000000"
+                    />
+                    <Text style={styles.label}>PARA VENDER
+                    {isSelected ? " acrescente um valor" : " "}</Text>
+                </View>
+            </View>
+
             <View style={styles.botaoAdicionarMargem}> 
                 <View style={styles.inputArea}>
                     <Text>R$</Text>
@@ -53,13 +91,24 @@ export default function AdicionarNovoProduto(){
 }
 
 const styles = StyleSheet.create({
+    addFotos: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: 200,
+        borderRadius: 5,
+        borderWidth: 3,
+        borderColor: "#000000",
+        borderStyle: 'dashed',
+        marginVertical: 10,
+        margin: 20,
+    },
     texto: {
-      paddingHorizontal: 15,
-      fontFamily: "Inter", 
-      fontStyle: "normal",
-      fontSize: 15,
-      lineHeight: 20,
-      color: "#000000",
+        paddingHorizontal: 15,
+        fontFamily: "Inter",
+        fontStyle: "normal",
+        fontSize: 15,
+        lineHeight: 20,
+        color: "#000000",
     },
     botaoAdicionarMargem:{
         paddingHorizontal: 15, 
@@ -90,7 +139,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffffff',
         elevation: 2,
         paddingHorizontal: 10,
-        height: 80,
+        height: 100,
         borderRadius: 10,
         borderWidth: 2,
         borderColor: '#000000',
@@ -112,6 +161,17 @@ const styles = StyleSheet.create({
          textAlignVertical: 'top',
          color: '#000000',
      },
+     checkboxOpcoes:{
+        flexDirection: "row",
+        marginBottom: 5,
+    },
+    checkbox: {
+        alignSelf: "center",
+    },
+    label: {
+        margin: 8,
+    },
+
     textoBotao:{
         color: '#FFFFFF', //cor do texto
         fontWeight: 'bold', //texto em negrito
