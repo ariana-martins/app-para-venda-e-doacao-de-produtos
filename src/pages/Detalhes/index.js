@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, Pressable, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import { ScrollView } from 'react-native-gesture-handler';
 
@@ -10,6 +11,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 
 export default function Detalhes() {
+    const navigation = useNavigation();
 
     return (
         <View style={styles.container}>
@@ -39,9 +41,9 @@ export default function Detalhes() {
             </View>
             
             <View style={styles.botaoAdicionarMargem}> 
-                <TouchableOpacity style={styles.btn}>
+                <Pressable style={styles.btn} onPress={() => navigation.navigate('ChatMensagens')}>
                     <Text style={styles.textoBotao}>Chat</Text>  
-                </TouchableOpacity>
+                </Pressable>
             </View>
             
             

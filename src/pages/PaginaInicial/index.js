@@ -3,7 +3,6 @@ import { View, Text, StyleSheet, Image, SafeAreaView, FlatList, Pressable, Alert
 import { useNavigation } from '@react-navigation/native';
 
 import Pesquisar from '../Pesquisar';
-import Detalhes from '../Detalhes';
 
 import ProdutosList from '../../components/ProdutosList';
 

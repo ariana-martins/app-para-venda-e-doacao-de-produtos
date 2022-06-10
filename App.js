@@ -211,8 +211,9 @@ import PaginaInicial from './src/pages/PaginaInicial';
 import Pesquisar from './src/pages/Pesquisar';
 import AdicionarNovoProduto from './src/pages/AdicionarNovoProduto';
 import Chat from './src/pages/Chat';
-import Perfil from './src/pages/Perfil';
+//import Perfil from './src/pages/Perfil'; //Nova pagina de perfil é PerfilTopTab
 import Detalhes from './src/pages/Detalhes';
+import ChatMensagens from './src/pages/ChatMensagens';
 
 
 const Stack = createStackNavigator();
@@ -253,10 +254,13 @@ function Tabs() {
         tabBarLabel: "Adicionar novo produto",
       }}
       />
-      <Tab.Screen 
+      <Tab.Screen
       name='Chat - Tab' 
       component={Chat} 
       options={{
+        headerShown: true, 
+        title: 'Chats',
+        headerTitleAlign: 'center',
         tabBarIcon: ({ color }) => (
         <Icon name="chatbubble-outline" size={20} color="#000000" />
         ),
@@ -294,9 +298,18 @@ export default function App() {
             fontSize: 25,
             color: '#000000',
           },
-
         }}
         />
+        
+        <Stack.Screen 
+        name="ChatMensagens" 
+        component={ChatMensagens} 
+        options={({route}) => ({
+          title: route.params.userName,
+          headerTitleAlign: 'center',
+          })}
+        />
+
       </Stack.Navigator>
     </NavigationContainer>
   );

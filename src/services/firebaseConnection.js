@@ -37,4 +37,17 @@ onAuthStateChanged(auth, user => {
 
 
 
+//Na hora de configurar o firebase e firebaseStore, 
+//não esquecer de incluir o export aqui esse estilo ou o outro export que fica na parte inferior do código:
+// export default firebaseConnection; 
+
+// ou 
+
+/* 
+  export default function firebaseConnection(){
+  return(
+
+  );
+};
+*/
 
