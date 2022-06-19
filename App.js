@@ -305,7 +305,7 @@ export default function App() {
         name="ChatMensagens" 
         component={ChatMensagens} 
         options={({route}) => ({
-          title: route.params.userName,
+          title: route.params.userDono,
           headerTitleAlign: 'center',
           })}
         />

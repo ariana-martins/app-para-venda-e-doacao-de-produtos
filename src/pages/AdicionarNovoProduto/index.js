@@ -1,25 +1,29 @@
 import React from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity} from 'react-native';
 import { Button, Checkbox } from 'react-native-paper';
+import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
 export default function AdicionarNovoProduto(){
 
+    
     const [isSelected, setSelection] = React.useState(false);
 
     return(
        
        <View style={{flex: 1, backgroundColor: '#FFFFFF'}}>
            <View>
-               <Button style={styles.addFotos}
-               icon="camera" 
-               mode="contained" 
-               color="#FFFFFF" 
-               onPress={()=> {}}>
-                   Adicionar fotos   
-               </Button>
+                <View style={styles.bordaAddFotos}>
+                    <Button
+                        icon="camera"
+                        mode="contained"
+                        color="#FFFFFF"
+                        onPress={() => {}}>
+                        Adicionar fotos
+                    </Button>
+                </View>
            </View>
 
            <Text style={styles.texto}>Título do produto:</Text>
@@ -91,7 +95,7 @@ export default function AdicionarNovoProduto(){
 }
 
 const styles = StyleSheet.create({
-    addFotos: {
+    bordaAddFotos: {
         alignItems: 'center',
         justifyContent: 'center',
         height: 200,

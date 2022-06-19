@@ -9,6 +9,10 @@ import SwiperNumberComponent from '../../components/SwiperNumber';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
+//Falta configurar para clicar no botão chat, e aparecer o UserDono, 
+//clicando na imagem do produto da página Inicial, e depois clicar em Chat aqui na tela Detalhes
+//Já está configurado em App.js em ChatMensagens e aparece o nome do UserDono
+
 
 export default function Detalhes() {
     const navigation = useNavigation();
@@ -41,7 +45,8 @@ export default function Detalhes() {
             </View>
             
             <View style={styles.botaoAdicionarMargem}> 
-                <Pressable style={styles.btn} onPress={() => navigation.navigate('ChatMensagens')}>
+                <Pressable style={styles.btn} onPress={() => navigation.navigate('ChatMensagens', 
+                {userDono: item.messageText})}>
                     <Text style={styles.textoBotao}>Chat</Text>  
                 </Pressable>
             </View>

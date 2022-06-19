@@ -12,10 +12,10 @@ export default function Chat() {
         id: '1',
         image: require('../../../src/assets/img1.png'),
         title: 'Sapatênis',
-        valor: 'R$200,00',
+        valor: 'R$200,00', 
         messageTime: '4 mins atrás',
-        messageText:
-            'Mais detalhes do produto'
+        messageText: 'João - dono do produto',
+        messageUser: 'Usuário 1',
         },
         {
         id: '2',
@@ -23,8 +23,8 @@ export default function Chat() {
         title: 'Blusa branca',
         valor: 'R$0,00',
         messageTime: '2 horas atrás',
-        messageText:
-            'Mais detalhes do produto'
+        messageText: 'Maria - dono do produto',
+        messageUser: 'Usuário 2',
         },
         {
         id: '3',
@@ -32,8 +32,8 @@ export default function Chat() {
         title: 'Tênis branco',
         valor: 'R$0,00',
         messageTime: '2 dias atrás',
-        messageText:
-            'Mais detalhes do produto'
+        messageText: 'Maria - dono do produto',
+        messageUser: 'Usuário 3',
         },
     ];
 
@@ -48,10 +48,10 @@ export default function Chat() {
                 renderItem={({item}) => (
                     <View style={styles.card}>
                         <Pressable onPress={() => navigation.navigate('ChatMensagens',
-                        {userName: item.title})}>
+                        {userDono: item.messageText})}>
                         <View style={styles.userInfo}>
                             <View style={styles.userImgWrapper}>
-                                <Image style={styles.userImg}
+                                <Image style={styles.prodImg}
                                 source={item.image}
                                 />
                             </View>
@@ -63,6 +63,7 @@ export default function Chat() {
                                 </View>
                                 <Text style={styles.userValor}>{item.valor}</Text>
                                 <Text>{item.messageText}</Text>
+                                <Text>{item.messageUser}</Text>
                             </View>
                         </View>
                         </Pressable>
@@ -93,7 +94,7 @@ const styles = StyleSheet.create({
         paddingTop: 15,
         paddingBottom: 15,
     },
-    userImg:{
+    prodImg:{
         width: 50,
         height: 50,
         borderRadius: 0,
