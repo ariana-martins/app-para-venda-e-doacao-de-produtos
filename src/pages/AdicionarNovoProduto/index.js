@@ -5,7 +5,6 @@ import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
-
 export default function AdicionarNovoProduto(){
 
     
